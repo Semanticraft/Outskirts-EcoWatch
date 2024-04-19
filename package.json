@@ -1,0 +1,14 @@
+{
+  "name": "outskirts-ecowatch",
+  "version": "1.0.0",
+  "description": "Semesterbegleitendes Projekt im Kurs \"Web Application Development\" der HTW Berlin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dennis Forster & Daniil Serdyuk",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
+}
