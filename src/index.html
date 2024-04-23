@@ -112,47 +112,59 @@
         <section id="add" class="py-5">
             <div class="container-md">
                 <form action="#">
-                    <div class="row justify-content-center align-items-center g-5">
-                        <div class="col-9 col-md-6">
+                    <div class="row justify-content-center align-items-center g-md-5 mb-4">
+                        <div class="col-9 col-md-6 mb-3">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="add_name" placeholder="Name">
                                 <label for="add_name">Name</label>
                             </div>
-                            <div class="row mb-3">
-                                <label for="add_address" class="col-sm-2 col-form-label">Ort:</label>
-                                <div class="col-sm-10">
-                                    <div class="row mb-3">
-                                        <div class="col-9">
-                                            <input type="text" class="form-control" id="add_address_street" placeholder="Straße">
-                                        </div>
-                                        <div class="col-3">
-                                            <input type="text" class="form-control" id="add_address_no" placeholder="Nr.">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <input type="text" class="form-control" id="add_address_zip" placeholder="PLZ.">
-                                        </div>
-                                        <div class="col-8">
-                                            <input type="text" class="form-control" id="add_address_city" placeholder="Stadt">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-floating">
+                            <div class="form-floating mb-3">
                                 <textarea class="form-control" placeholder="Eine kurze Beschreibung des Ortes" id="add_description" style="height: 100px"></textarea>
                                 <label for="floatingTextarea2">Beschreibung</label>
+                            </div>
+                            <div class="mb">
+                                <label for="imagesUpload" class="form-label">Upload images:</label>
+                                <input class="form-control" type="file" id="imagesUpload" multiple>
                             </div>
                         </div>
                         <!-- #TODO -->
                         <div class="col-9 col-md-6">
-                            <div class="row">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Dropdown</label>
-                                <div class="col-sm-10">
-                                  <input type="email" class="form-control" id="inputEmail3" placeholder="NOT DONE YET">
+                            <div class="row mb-4">
+                                <label for="add_address" class="col-sm-12 col-form-label">Ort:</label>
+                                <div class="row mb-2">
+                                    <div class="col-9">
+                                        <input type="text" class="form-control" id="add_address_street" placeholder="Straße">
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" class="form-control" id="add_address_no" placeholder="Nr.">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" id="add_address_zip" placeholder="PLZ.">
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" class="form-control" id="add_address_city" placeholder="Stadt">
+                                    </div>
                                 </div>
                             </div>
-
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="add_category">
+                                    <option value="1">Cyclists</option>
+                                    <option value="2">Public Transport</option>
+                                    <option value="3">Car Infrastructure</option>
+                                    <option value="4">Pedestrials</option>
+                                    <option value="5">Parks & Rec</option>
+                                    <option value="6">Industry</option>
+                                </select>
+                                <label for="add_category">Category</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="add_temporary_check">
+                                <label class="form-check-label" for="add_temporary_check">
+                                    Temporary
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </form>
