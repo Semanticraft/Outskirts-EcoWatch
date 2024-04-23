@@ -14,3 +14,7 @@ scss files are being converted to css via VS-Code Extension: Live Sass Compiler
 
 // Include ALL of Bootstrap
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+.img-thumbnail:hover {
+    text-decoration: underline;
+}
