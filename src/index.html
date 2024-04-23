@@ -107,11 +107,11 @@
                     <div class="row justify-content-center align-items-center g-md-5 mb-4">
                         <div class="col-9 col-md-6 mb-3">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="add_name" placeholder="Name">
+                                <input type="text" class="form-control" id="add_name" placeholder="Name"  required>
                                 <label for="add_name">Name</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" placeholder="Eine kurze Beschreibung des Ortes" id="add_description" style="height: 100px"></textarea>
+                                <textarea class="form-control" placeholder="Eine kurze Beschreibung des Ortes" id="add_description" style="height: 100px"  required></textarea>
                                 <label for="floatingTextarea2">Beschreibung</label>
                             </div>
                             <div class="mb">
@@ -125,18 +125,18 @@
                                 <label for="add_address" class="col-sm-12 col-form-label">Ort:</label>
                                 <div class="row mb-2">
                                     <div class="col-9">
-                                        <input type="text" class="form-control" id="add_address_street" placeholder="Straße">
+                                        <input type="text" class="form-control" id="add_address_street" placeholder="Straße"  required>
                                     </div>
                                     <div class="col-3">
-                                        <input type="text" class="form-control" id="add_address_no" placeholder="Nr.">
+                                        <input type="text" class="form-control" id="add_address_no" placeholder="Nr."  required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-4">
-                                        <input type="text" class="form-control" id="add_address_zip" placeholder="PLZ.">
+                                        <input type="text" class="form-control" id="add_address_zip" placeholder="PLZ."  required>
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="form-control" id="add_address_city" placeholder="Stadt">
+                                        <input type="text" class="form-control" id="add_address_city" placeholder="Stadt"  required>
                                     </div>
                                 </div>
                             </div>
@@ -189,32 +189,32 @@
                             <div class="mb-3">
                                 <div class="form-group">
                                     <label for="new-name">Name:</label>
-                                    <input type="text" class="form-control" id="new-name" placeholder="Enter Name" name="name" value="Narrow and Partly Blocked Bike Paths">
+                                    <input type="text" class="form-control" id="new-name" placeholder="Enter Name" name="name" value="Narrow and Partly Blocked Bike Paths"  required>
                                 </div>
                                 <div class="form-group">
                                     <label for="new-description">Description:</label>
-                                    <textarea class="form-control" id="new-description" placeholder="Enter Description" name="description">The bike paths here are very narrow and partly blocked by other vehicles.</textarea>
+                                    <textarea class="form-control" id="new-description" placeholder="Enter Description" name="description"  required>The bike paths here are very narrow and partly blocked by other vehicles.</textarea>
                                 </div>                                
                                 <div class="row">
                                     <div class="form-group col-8">
                                         <label for="new-street">Street:</label>
-                                        <input type="text" class="form-control" id="new-street" placeholder="Enter Street" name="street" value="Waltersdorfer Straße">
+                                        <input type="text" class="form-control" id="new-street" placeholder="Enter Street" name="street" value="Waltersdorfer Straße"  required>
                                     </div>
                                     <div class="form-group col-4">
                                         <label for="new-house-number">Number:</label>
-                                        <input type="text" class="form-control" id="new-house-number" placeholder="Enter House Number" name="house-number" value="61">
+                                        <input type="text" class="form-control" id="new-house-number" placeholder="Enter House Number" name="house-number" value="61"  required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="new-zip">ZIP (PLZ):</label>
-                                    <input type="text" class="form-control" id="new-zip" placeholder="Enter ZIP (PLZ)" name="zip" value="12526">
+                                    <input type="text" class="form-control" id="new-zip" placeholder="Enter ZIP (PLZ)" name="zip" value="12526"  required>
                                 </div>
                                 <div class="form-group">
                                     <label for="new-city">City:</label>
-                                    <input type="text" class="form-control" id="new-city" placeholder="Enter City" name="city" value="Berlin">
+                                    <input type="text" class="form-control" id="new-city" placeholder="Enter City" name="city" value="Berlin"  required>
                                 </div>
-                                <label for="dropdown" class="form-label">Select an option:</label>
-                                <select class="form-select" id="dropdown" name="dropdown">
+                                <label for="dropdown" class="form-label">Select a category:</label>
+                                <select class="form-select" id="dropdown" name="dropdown"  required>
                                     <option value="1" selected>Cyclists</option>
                                     <option value="2">Public Transport</option>
                                     <option value="3">Car Infrastructure</option>
@@ -245,7 +245,7 @@
                 </div>                
             </div>
         </section>
-        
+
         <!-- footer -->
         <footer class="footer py-3 bg-primary-subtle fixed-bottom d-flex align-items-center">
             <div class="container d-flex align-items-center justify-content-between">
@@ -258,3 +258,4 @@
         </footer>
     </body>
 </html>
+
