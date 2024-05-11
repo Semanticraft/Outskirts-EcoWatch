@@ -11971,3 +11971,7 @@ textarea.form-control-lg {
 .img-thumbnail:hover {
   text-decoration: underline;
 }
+
+#main, #add, #update-and-delete {
+  display: none;
+}/*# sourceMappingURL=main.css.map */

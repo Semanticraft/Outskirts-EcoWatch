@@ -18,3 +18,7 @@ scss files are being converted to css via VS-Code Extension: Live Sass Compiler
 .img-thumbnail:hover {
     text-decoration: underline;
 }
+
+#main, #add, #update-and-delete {
+    display: none;
+}
