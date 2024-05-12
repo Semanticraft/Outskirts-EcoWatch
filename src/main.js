@@ -5,12 +5,13 @@ let itemCounter = 0;
 let rowDiv;
 locationList.forEach(location => {
     itemCounter++;
+    // inserting row after every third element
     if(itemCounter % 3 == 1) {
         rowDiv = document.createElement('div');
         rowDiv.classList.add('row');
     }
 
-    var outerDiv = document.createElement('div');
+    let outerDiv = document.createElement('div');
     outerDiv.classList.add('col-md-4');
     outerDiv.classList.add('my-3');
 
@@ -25,9 +26,24 @@ locationList.forEach(location => {
 
     rowDiv.appendChild(outerDiv);
 
-    var parentElement = document.getElementById('welcome-message');
+    let parentElement = document.getElementById('welcome-message');
 
     parentElement.insertAdjacentElement('afterend', rowDiv);
+
+    /*Setting the detail view to fit the location values*/
+    outerDiv.onclick = function() {
+        document.getElementById('new-name').value = location.name;
+        document.getElementById('new-description').value = location.description;
+        document.getElementById('new-street').value = location.street;
+        document.getElementById('new-house-number').value = location.houseNumber;
+        document.getElementById('new-zip').value = location.zip;
+        document.getElementById('new-city').value = location.city;
+        document.getElementById('new-category').value = location.category;
+        document.getElementById('latId').value = location.latitude;
+        document.getElementById('longId').value = location.longitude;
+        document.getElementById('new-temporary').checked = location.temporary;
+        document.getElementById('update-and-delete-image').src = location.imagePath;
+    }
 })
 
 function login(username, password) {
@@ -45,17 +61,17 @@ function login(username, password) {
                 document.getElementById('update-button').style.display = 'none';
                 document.getElementById('delete-button').style.display = 'none';
             }
-        } else {
+        } else if(password != "") {
             alert('The password is incorrect.');
         }
-    } else {
+    } else if(username != "") {
         alert('The username does not exist.');
     }
 }
 
 function logout() {
     let sections = document.getElementsByTagName('section');
-    for (var i = 1; i < sections.length; i++) {
+    for (let i = 1; i < sections.length; i++) {
         sections[i].style.display = 'none';
     }
     document.getElementById('login').style.display = 'block';
@@ -75,7 +91,17 @@ Array.from(locations).forEach(location => {
     }
 });
 
-document.getElementById('cancel-button').onclick = function() {
+document.getElementById('cancel-update-and-delete').onclick = function() {
     document.getElementById('main').style.display = 'block';
     document.getElementById('update-and-delete').style.display = 'none';
+}
+
+document.getElementById('add-button').onclick = function() {
+    document.getElementById('main').style.display = 'none';
+    document.getElementById('add').style.display = 'block';
+}
+
+document.getElementById('cancel-add').onclick = function() {
+    document.getElementById('add').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
 }

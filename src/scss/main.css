@@ -11982,9 +11982,10 @@ textarea.form-control-lg {
   display: none;
 }
 
-/*make section appear under navbar*/
+/*make section appear under navbar and over footer*/
 section {
   margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 #update-button, #delete-button, #add-button {

@@ -54,49 +54,15 @@
         </section>
 
         <!-- main section -->
-        <section id="main">
+        <section id="main" class="py-3">
             <!-- title, welcome and locations -->
             <div class="container py-3">
                 <h1 class="display-4 text-center">Outskirts<br>Ecowatch</h1>
                 <p id="welcome-message" class="lead text-center">Welcome User!</p>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="img-thumbnail location">
-                            <a class="text-decoration-none">
-                                <img src="images/spandau-brunsbueteller-damm-261.PNG" alt="Spandau, Magistratsweg" class="img-thumbnail img-fluid">
-                                <div class="caption">
-                                    <p class="text-body"><em>Fehlende Infrastruktur</em>, Berlin, 13591, Magistratsweg. Von hier aus gesehen sind es etwa 3 Kilometer um bis zu
-                                    den nächsten S-Bahnen und U-Bahnen zu gelangen.</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="img-thumbnail location">
-                            <a class="text-decoration-none">
-                                <img src="images/spandau-am-kiesteich.PNG" alt="Spandau, Am Kiesteich" class="img-thumbnail img-fluid">
-                                <div class="caption">
-                                    <p class="text-body"><em>Fehlende Infrastruktur 2</em>, Berlin, 13589, Am Kiesteich. Von hier sind es sogar in etwa 3,5 bis 4 Kilometer.</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="img-thumbnail location">
-                            <a class="text-decoration-none">
-                                <img src="images/treptow-koepenik-waltersdorfer-strasse.PNG" alt="Treptow Köpenik, Waltersdorfer Straße 61" class="img-thumbnail img-fluid">
-                                <div class="caption">
-                                    <p class="text-body"><em>Mangelhafte Radwege</em>, Berlin, 12526, Waltersdorfer Straße 61. Hier sind die Fahrradwege sehr schmal
-                                    und teils von anderen Fahrzeugen blockiert.</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
             <!-- add button -->
             <div class="container">
-                <button id="add-button" class="btn btn-primary btn-lg m-3 px-4" type="button">Add</button>
+                <button id="add-button" class="btn btn-primary btn-lg px-4" type="button">Add</button>
             </div>
         </section>
 
@@ -166,7 +132,7 @@
                             <button type="submit" class="btn btn-outline-success btn-lg">Submit</button>
                         </div>
                         <div class="col justify-content-center">
-                            <button type="button" class="btn btn-outline-danger btn-lg">Cancel</button>
+                            <button id="cancel-add" type="button" class="btn btn-outline-danger btn-lg">Cancel</button>
                         </div>
                     </div>
                 </form>
@@ -175,13 +141,13 @@
 
 
         <!-- Update- / Delete-Screen #TODO -->
-        <section id="update-and-delete" class="bg-light py-5 mb-3">
+        <section id="update-and-delete" class="py-3">
             <div class="container">
                 <div class="row justify-content-center align-items-center"">
                     <div class="col-lg-4 mt-4 order-lg-2 img-fluid">
                         <div class="thumbnail">
                             <a href="images/treptow-koepenik-waltersdorfer-strasse.PNG" target="_blank">
-                                <img src="images/treptow-koepenik-waltersdorfer-strasse.PNG" alt="Treptow Köpenik, Waltersdorfer Straße 61" class="img-thumbnail img-fluid">
+                                <img id="update-and-delete-image" src="images/treptow-koepenik-waltersdorfer-strasse.PNG" alt="Treptow Köpenik, Waltersdorfer Straße 61" class="img-thumbnail img-fluid">
                             </a>
                         </div>
                     </div>
@@ -214,8 +180,8 @@
                                     <label for="new-city">City:</label>
                                     <input type="text" class="form-control" id="new-city" placeholder="Enter City" name="city" value="Berlin"  required>
                                 </div>
-                                <label for="dropdown" class="form-label">Select a category:</label>
-                                <select class="form-select" id="dropdown" name="dropdown"  required>
+                                <label for="new-category" class="form-label">Select a category:</label>
+                                <select class="form-select" id="new-category" name="dropdown"  required>
                                     <option value="1" selected>Cyclists</option>
                                     <option value="2">Public Transport</option>
                                     <option value="3">Car Infrastructure</option>
@@ -223,9 +189,17 @@
                                     <option value="5">Parks & Rec</option>
                                     <option value="6">Industry</option>
                                 </select>
+                                <div class="form-group">
+                                    <label for="longId">Longitude:</label>
+                                    <input id="longId" class="form-control" type="text" name="longitude" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="latId">Latidude:</label>
+                                    <input id="latId" class="form-control" type="text" name="latitude" readonly>
+                                </div>
                                 <div class="form-check mt-3 mb-3">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkbox">
-                                    <label class="form-check-label" for="checkbox">
+                                    <input class="form-check-input" type="checkbox" value="" id="new-temporary">
+                                    <label class="form-check-label" for="new-temporary">
                                         Temporary
                                     </label>
                                 </div>   
@@ -238,7 +212,7 @@
                                         <button id="delete-button" class="btn btn-outline-danger" style="width: 100%;">Delete</button>
                                     </div>
                                     <div class="col-6">
-                                        <button id="cancel-button" class="btn btn-outline-danger" style="width: 100%;">Cancel</button>
+                                        <button id="cancel-update-and-delete" class="btn btn-outline-danger" style="width: 100%;">Cancel</button>
                                     </div>
                                 </div>
                             </div>                                                 
@@ -248,7 +222,7 @@
         </section>
 
         <!-- footer -->
-        <footer class="footer py-3 bg-primary-subtle fixed-bottom d-flex align-items-center">
+        <footer class="footer py-3 bg-primary-subtle fixed-bottom d-flex align-items-center" style="height: 60px;">
             <div class="container d-flex align-items-center justify-content-between">
                 <span class="text-muted">Beispiel-Fußzeile &copy; 2024</span>
                 <ul class="list-inline float-end mb-0 d-flex align-items-center">

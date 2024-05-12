@@ -1,6 +1,6 @@
 const locationList = new Array();
 
-function addLocation(name, description, street, housenumber, zip, city, category, temporary, imagePath) {
+function addLocation(name, description, street, houseNumber, zip, city, category, temporary, imagePath) {
     const longitude = 0;
     const latitude = 0;
 
@@ -8,7 +8,7 @@ function addLocation(name, description, street, housenumber, zip, city, category
         name: name,
         description: description,
         street: street,
-        housenumber: housenumber,
+        houseNumber: houseNumber,
         zip: zip,
         city: city,
         category: category,
@@ -28,7 +28,7 @@ addLocation(
     '259',
     '13591',
     'Berlin',
-    'Infrastructure',
+    '2',
     true,
     './images/spandau-brunsbueteller-damm-261.PNG'
 );
@@ -39,7 +39,7 @@ addLocation(
     '200',
     '13589',
     'Berlin',
-    'Infrastructure',
+    '2',
     true,
     './images/spandau-am-kiesteich.PNG'
 );
@@ -50,7 +50,7 @@ addLocation(
     '61',
     '13589',
     'Berlin',
-    'Infrastructure',
+    '1',
     true,
     './images/treptow-koepenik-waltersdorfer-strasse.PNG'
 );
