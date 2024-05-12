@@ -1,13 +1,10 @@
-let admina = {
-    username: "admina", 
-    password: "password", 
-    role: "admin",
-    name: "Mina"
-};
+const userList = new Map([]);
 
-let normalo = {
-    username: "normalo", 
-    password: "password", 
-    role: "non-admin",
-    name: "Norman"
-};
+function addUser(username, password, role, name) {
+    userList.set(username, [password, role, name]);
+}
+
+addUser('admina', 'password', 'admin', 'Mina');
+addUser('normalo', 'password', 'non-admin', 'Norman');
+
+export {userList};

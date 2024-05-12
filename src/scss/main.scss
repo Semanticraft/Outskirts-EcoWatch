@@ -15,10 +15,25 @@ scss files are being converted to css via VS-Code Extension: Live Sass Compiler
 // Include ALL of Bootstrap
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
-.img-thumbnail:hover {
+.location:hover {
+    cursor: pointer;
     text-decoration: underline;
 }
 
+/*does not work for some reason...*/
+.location:active {
+    color: black !important;
+}
+
 #main, #add, #update-and-delete {
+    display: none;
+}
+
+/*make section appear under navbar*/
+section {
+    margin-top: 60px;
+}
+
+#update-button, #delete-button, #add-button {
     display: none;
 }

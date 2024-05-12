@@ -11968,10 +11968,25 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.img-thumbnail:hover {
+.location:hover {
+  cursor: pointer;
   text-decoration: underline;
 }
 
+/*does not work for some reason...*/
+.location:active {
+  color: black !important;
+}
+
 #main, #add, #update-and-delete {
+  display: none;
+}
+
+/*make section appear under navbar*/
+section {
+  margin-top: 60px;
+}
+
+#update-button, #delete-button, #add-button {
   display: none;
 }/*# sourceMappingURL=main.css.map */
