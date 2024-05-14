@@ -77,8 +77,9 @@ function logout() {
     document.getElementById('login').style.display = 'block';
 }
 
-document.getElementById('login-button').onclick = function() {
+document.getElementById('login-form').onsubmit = function() {
     login(document.getElementById('username').value, document.getElementById('password').value);
+    return false; // Prevent the default form submission behavior (don't reload page)
 };
 
 document.getElementById('logout-button').onclick = logout;
