@@ -15,6 +15,7 @@ locationList.forEach(location => {
     outerDiv.classList.add('col-md-4');
     outerDiv.classList.add('my-3');
 
+    // outerDiv is the displayed image-thumbnail (3 next to each other)
     outerDiv.innerHTML = '<div class="img-thumbnail location">' +
                             '<a class="text-decoration-none">' +
                                 '<img src="' + location.imagePath + '" alt="' + location.city + ' ' + location.street + '" class="img-thumbnail img-fluid">' +
@@ -28,7 +29,9 @@ locationList.forEach(location => {
 
     let parentElement = document.getElementById('welcome-message');
 
-    parentElement.insertAdjacentElement('afterend', rowDiv);
+    if (itemCounter % 3 == 1) {
+        parentElement.insertAdjacentElement('afterend', rowDiv);
+    }
 
     /*Setting the detail view to fit the location values*/
     outerDiv.onclick = function() {

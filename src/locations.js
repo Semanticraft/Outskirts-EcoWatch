@@ -55,4 +55,4 @@ addLocation(
     './images/treptow-koepenik-waltersdorfer-strasse.PNG'
 );
 
-export {locationList};
+export {locationList, addLocation};

@@ -7,4 +7,4 @@ function addUser(username, password, role, name) {
 addUser('admina', 'password', 'admin', 'Mina');
 addUser('normalo', 'password', 'non-admin', 'Norman');
 
-export {userList};
+export {userList, addUser};
