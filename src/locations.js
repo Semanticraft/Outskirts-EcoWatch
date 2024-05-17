@@ -1,10 +1,15 @@
 const locationList = new Array();
 
 function addLocation(name, description, street, houseNumber, zip, city, category, temporary, imagePath) {
-    const longitude = 0;
-    const latitude = 0;
+    pushLocation(createLocation(name, description, street, houseNumber, zip, city, category, temporary, imagePath));
+}
 
-    const newLocation = {
+function pushLocation(location) {
+    locationList.push(location);
+}
+
+function createLocation(name, description, street, houseNumber, zip, city, category, temporary, imagePath) {
+    return {
         name: name,
         description: description,
         street: street,
@@ -13,12 +18,10 @@ function addLocation(name, description, street, houseNumber, zip, city, category
         city: city,
         category: category,
         temporary: temporary,
-        longitude: longitude,
-        latitude: latitude, 
+        lon: 0,
+        lat: 0, 
         imagePath: imagePath
     };
-
-    locationList.push(newLocation);
 }
 
 addLocation(
@@ -55,4 +58,4 @@ addLocation(
     './images/treptow-koepenik-waltersdorfer-strasse.PNG'
 );
 
-export {locationList, addLocation};
+export {locationList, createLocation, pushLocation};
