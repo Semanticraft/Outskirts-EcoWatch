@@ -151,11 +151,8 @@ document.getElementById('update-and-delete-form').onsubmit = function() {
 
             openSection('main');
             updateLocationUI(selectedLocation);
-
-            alert('temp');
         } else {
             console.log("Failed to getCoords() for location: " + JSON.stringify(location));
-            alert('AAAAAA');
         }
     }).catch(error => console.log(error));
     return false;
