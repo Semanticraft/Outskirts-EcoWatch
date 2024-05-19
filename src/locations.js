@@ -5,6 +5,7 @@ function addLocation(name, description, street, houseNumber, zip, city, category
 }
 
 function pushLocation(location) {
+    location.id = locationList.length;
     locationList.push(location);
 }
 

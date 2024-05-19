@@ -59,7 +59,11 @@
             <div class="container py-3">
                 <h1 class="display-4 text-center">Outskirts<br>Ecowatch</h1>
                 <p id="welcome-message" class="lead text-center">Welcome User!</p>
+                <div class="row justify-content-center align-items-center" id="main-row-locations">
+                    <!-- Initialized in main.js -->
+                </div>
             </div>
+            
             <!-- add button -->
             <div class="container">
                 <button id="add-button" class="btn btn-primary btn-lg px-4" type="button">Add</button>
@@ -152,7 +156,7 @@
                         </div>
                     </div>
                     <div class="col-lg-8 order-lg-1 mb-4">
-                        <form>
+                        <form id="update-and-delete-form">
                             <div class="mb-3">
                                 <div class="form-group">
                                     <label for="new-name">Name:</label>
@@ -200,22 +204,22 @@
                                 <div class="form-check mt-3 mb-3">
                                     <input class="form-check-input" type="checkbox" value="" id="new-temporary">
                                     <label class="form-check-label" for="new-temporary">
-                                        Temporary
+                                        Temporarys
                                     </label>
                                 </div>   
                             </div>
                             <button id="update-button" type="submit" class="btn btn-success form-control mb-3">Update</button>
-                            </form>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <button id="delete-button" class="btn btn-outline-danger" style="width: 100%;">Delete</button>
-                                    </div>
-                                    <div class="col-6">
-                                        <button id="cancel-update-and-delete" class="btn btn-outline-danger" style="width: 100%;">Cancel</button>
-                                    </div>
+                        </form>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">
+                                    <button id="delete-button" class="btn btn-outline-danger" style="width: 100%;">Delete</button>
                                 </div>
-                            </div>                                                 
+                                <div class="col-6">
+                                    <button id="cancel-update-and-delete" class="btn btn-outline-danger" style="width: 100%;">Cancel</button>
+                                </div>
+                            </div>
+                        </div>                                                 
                     </div>
                 </div>                
             </div>

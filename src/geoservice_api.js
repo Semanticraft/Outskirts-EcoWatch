@@ -1,6 +1,6 @@
 
 export async function getCoords(location) {
-    //console.log("getCoords() - request: " + JSON.stringify(location));
+    console.log("getCoords() - request: " + JSON.stringify(location));
     try {
         const response = await requestGeoService(location.street + ",+" + location.houseNumber + ",+" + location.zip + ",+" + location.city);
         console.log("getCoords() - result: " + JSON.stringify(response));

@@ -32,7 +32,7 @@ addUser('normalo', 'password', 'non-admin', 'Norman');
 function login(username, password) {
     if (userExists(username)) {
         console.log("username correct");
-        console.log("user: " + userList.get(username));
+        console.log("user: " + JSON.stringify(userList.get(username)));
         if (userList.get(username).password === password) {
             console.log("password correct");
             loggedIn = true;
@@ -46,8 +46,6 @@ function login(username, password) {
             document.getElementById('add-button').style.display = status;
             document.getElementById('update-button').style.display = status;
             document.getElementById('delete-button').style.display = status
-
-            alert("successful login");
         } else {
             alert("wrong password");
         }
