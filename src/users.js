@@ -46,6 +46,8 @@ function login(username, password) {
             document.getElementById('add-button').style.display = status;
             document.getElementById('update-button').style.display = status;
             document.getElementById('delete-button').style.display = status
+
+            // TODO - Make ALL Update-Fields readonly if (user.role != "admin")
         } else {
             alert("wrong password");
         }

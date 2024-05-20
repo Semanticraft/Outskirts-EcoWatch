@@ -68,6 +68,24 @@ function getImgThumbnailString(location) {
             '</div>';
 }
 
+// Returns a Promise which contains the URL of the uploaded image
+function getImageSrc() {
+    const input = document.getElementById('imagesUpload');
+    const file = input.files;
+
+    if (file && file[0]) {
+        return new Promise((resolve, reject) => {
+            const fileReader = new FileReader();
+            fileReader.onload = event => {
+                resolve(event.target.result);
+            };
+            fileReader.onerror = error => {
+                reject(error);
+            };
+            fileReader.readAsDataURL(file[0]);
+        });
+    }
+}
 
 // --------------------- SETUP EVENT-HANDLERS -----------------------
 
@@ -95,7 +113,26 @@ document.getElementById('delete-button').onclick = function() {
     openSection('main');
 }
 
+// First gets image via promise getImageSrc() and then calls addSubmitFunction(imageUrl)
 document.getElementById('add-form').onsubmit = function() {
+    const imageSrcPromise = getImageSrc();
+    if (imageSrcPromise) {
+        getImageSrc()
+            .then(imageUrl => {
+                addSubmitFunction(imageUrl);
+            })
+            .catch(error => {
+                console.error('Error reading file:', error);
+                addSubmitFunction('#');
+            });
+    } else {
+        console.log('No images uploaded');
+        addSubmitFunction('#');
+    }
+    return false;
+}
+
+function addSubmitFunction(imageUrl) {
     const location = createLocation(
         document.getElementById("add_name").value,
         document.getElementById("add_description").value,
@@ -105,7 +142,7 @@ document.getElementById('add-form').onsubmit = function() {
         document.getElementById("add_address_city").value,
         document.getElementById("add_category").value,
         document.getElementById("add_temporary_check").checked,
-        document.getElementById("imagesUpload").src
+        imageUrl
     );
     getCoords(location).then(submit => {
         if (submit) {
@@ -118,7 +155,6 @@ document.getElementById('add-form').onsubmit = function() {
             console.log("Failed to getCoords() for location: " + JSON.stringify(location));
         }
     }).catch(error => console.log(error));
-    return false;
 }
 
 document.getElementById('update-and-delete-form').onsubmit = function() {
