@@ -150,7 +150,17 @@ function addSubmitFunction(imageUrl) {
             pushLocation(location);
             addLocationToUI(location);
             openSection('main');
-            // TODO - if add suceeds all fields need to be reset
+            
+            // Resetting all add-fields!
+            document.getElementById("add_name").value = "";
+            document.getElementById("add_description").value = "";
+            document.getElementById("add_address_street").value = "";
+            document.getElementById("add_address_no").value = "";
+            document.getElementById("add_address_zip").value = "";
+            document.getElementById("add_address_city").value = "";
+            document.getElementById("add_category").selectedIndex = 0;
+            document.getElementById("add_temporary_check").checked = false;
+            document.getElementById('imagesUpload').value = "";
         } else {
             console.log("Failed to getCoords() for location: " + JSON.stringify(location));
         }
