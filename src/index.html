@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="./scss/main.css">
 
         <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script type="module" src="main.js" defer></script>
+        <script type="module" src="scripts/main.js" defer></script>
 
         <title>Outskirts Ecowatch</title>
     </head>
@@ -150,9 +150,7 @@
                 <div class="row justify-content-center align-items-center"">
                     <div class="col-lg-4 mt-4 order-lg-2 img-fluid">
                         <div class="thumbnail">
-                            <a href="images/treptow-koepenik-waltersdorfer-strasse.PNG" target="_blank">
-                                <img id="update-and-delete-image" src="images/treptow-koepenik-waltersdorfer-strasse.PNG" alt="Treptow Köpenik, Waltersdorfer Straße 61" class="img-thumbnail img-fluid">
-                            </a>
+                            <img id="update-and-delete-image" class="img-thumbnail img-fluid">
                         </div>
                     </div>
                     <div class="col-lg-8 order-lg-1 mb-4">
@@ -160,33 +158,33 @@
                             <div class="mb-3">
                                 <div class="form-group">
                                     <label for="new-name">Name:</label>
-                                    <input type="text" class="form-control" id="new-name" placeholder="Enter Name" name="name" value="Narrow and Partly Blocked Bike Paths"  required>
+                                    <input type="text" class="form-control update-input" id="new-name" placeholder="Enter Name" name="name"  required>
                                 </div>
                                 <div class="form-group">
                                     <label for="new-description">Description:</label>
-                                    <textarea class="form-control" id="new-description" placeholder="Enter Description" name="description"  required>The bike paths here are very narrow and partly blocked by other vehicles.</textarea>
+                                    <textarea class="form-control update-input" id="new-description" placeholder="Enter Description" name="description"  required></textarea>
                                 </div>                                
                                 <div class="row">
                                     <div class="form-group col-8">
                                         <label for="new-street">Street:</label>
-                                        <input type="text" class="form-control" id="new-street" placeholder="Enter Street" name="street" value="Waltersdorfer Straße"  required>
+                                        <input type="text" class="form-control update-input" id="new-street" placeholder="Enter Street" name="street" required>
                                     </div>
                                     <div class="form-group col-4">
                                         <label for="new-house-number">Number:</label>
-                                        <input type="text" class="form-control" id="new-house-number" placeholder="Enter House Number" name="house-number" value="61"  required>
+                                        <input type="text" class="form-control update-input" id="new-house-number" placeholder="Enter House Number" name="house-number"  required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="new-zip">ZIP (PLZ):</label>
-                                    <input type="text" class="form-control" id="new-zip" placeholder="Enter ZIP (PLZ)" name="zip" value="12526"  required>
+                                    <input type="text" class="form-control update-input" id="new-zip" placeholder="Enter ZIP (PLZ)" name="zip" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="new-city">City:</label>
-                                    <input type="text" class="form-control" id="new-city" placeholder="Enter City" name="city" value="Berlin"  required>
+                                    <input type="text" class="form-control update-input" id="new-city" placeholder="Enter City" name="city" required>
                                 </div>
                                 <label for="new-category" class="form-label">Select a category:</label>
-                                <select class="form-select" id="new-category" name="dropdown"  required>
-                                    <option value="1" selected>Cyclists</option>
+                                <select class="form-select update-input" id="new-category" name="dropdown"  required>
+                                    <option value="1">Cyclists</option>
                                     <option value="2">Public Transport</option>
                                     <option value="3">Car Infrastructure</option>
                                     <option value="4">Pedestrials</option>
@@ -195,16 +193,16 @@
                                 </select>
                                 <div class="form-group">
                                     <label for="longId">Longitude:</label>
-                                    <input id="longId" class="form-control" type="text" name="longitude" readonly>
+                                    <input id="longId" class="form-control update-input" type="text" name="longitude" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="latId">Latidude:</label>
-                                    <input id="latId" class="form-control" type="text" name="latitude" readonly>
+                                    <input id="latId" class="form-control update-input" type="text" name="latitude" readonly>
                                 </div>
                                 <div class="form-check mt-3 mb-3">
-                                    <input class="form-check-input" type="checkbox" value="" id="new-temporary">
+                                    <input class="form-check-input update-input" type="checkbox" id="new-temporary">
                                     <label class="form-check-label" for="new-temporary">
-                                        Temporarys
+                                        Temporary
                                     </label>
                                 </div>   
                             </div>
