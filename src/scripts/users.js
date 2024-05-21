@@ -1,5 +1,5 @@
 import { openSection } from "./navigation.mjs";
-import { disableByClass } from "./util";
+import { disableElementsByClass } from "./util";
 
 const userList = new Map([]);
 
@@ -50,7 +50,7 @@ function login(username, password) {
             document.getElementById('delete-button').style.display = status;
 
             // Make ALL Update-Fields readonly if (user.role != "admin")
-            disableByClass('update-input', !isAdmin);
+            disableElementsByClass('update-input', !isAdmin);
         } else {
             alert("wrong password");
         }
