@@ -1,5 +1,5 @@
 import { openSection } from "./navigation.mjs";
-import { disableElementsByClass } from "./util";
+import { disableElementsByClass } from "./util.js";
 
 const userList = new Map([]);
 
@@ -48,7 +48,7 @@ function login(username, password) {
             document.getElementById('add-button').style.display = status;
             document.getElementById('update-button').style.display = status;
             document.getElementById('delete-button').style.display = status;
-            
+
             disableElementsByClass('update-input', !isAdmin);
         } else {
             alert("wrong password");

@@ -39,7 +39,7 @@ addLocation(
 addLocation(
     'Fehlende Infrastruktur 2', 
     'Von hier sind es sogar in etwa 3,5 bis 4 Kilometer.',
-    'Falkenseer Chausee',
+    'Falkenseer Chaussee',
     '200',
     '13589',
     'Berlin',
@@ -58,5 +58,12 @@ addLocation(
     true,
     './images/treptow-koepenik-waltersdorfer-strasse.PNG'
 );
+
+locationList[0].lon = 13.158437
+locationList[1].lon = 13.1659072
+locationList[2].lon = 13.5711655
+locationList[0].lat = 52.5329111
+locationList[1].lat = 52.5506273
+locationList[2].lat = 52.3897087
 
 export {locationList, createLocation, pushLocation};
