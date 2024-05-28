@@ -114,7 +114,8 @@ document.getElementById('delete-button').onclick = function() {
 }
 
 // First gets image via promise getImageSrc() and then calls addSubmitFunction(imageUrl)
-document.getElementById('add-form').onsubmit = function() {
+document.getElementById('add-form').onsubmit = (e) => {
+    e.preventDefault();
     const imageSrcPromise = getImageSrc();
     if (imageSrcPromise) {
         getImageSrc()
@@ -129,7 +130,6 @@ document.getElementById('add-form').onsubmit = function() {
         console.log('No images uploaded');
         addSubmitFunction('#');
     }
-    return false;
 }
 
 function addSubmitFunction(imageUrl) {
@@ -167,7 +167,8 @@ function addSubmitFunction(imageUrl) {
     }).catch(error => console.log(error));
 }
 
-document.getElementById('update-and-delete-form').onsubmit = function() {
+document.getElementById('update-and-delete-form').onsubmit = (e) => {
+    e.preventDefault();
     const location = createLocation(
         document.getElementById("new-name").value,
         document.getElementById("new-description").value,
@@ -201,5 +202,4 @@ document.getElementById('update-and-delete-form').onsubmit = function() {
             console.log("Failed to getCoords() for location: " + JSON.stringify(location));
         }
     }).catch(error => console.log(error));
-    return false;
 }
