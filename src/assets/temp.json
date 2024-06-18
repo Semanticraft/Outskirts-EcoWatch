@@ -1,0 +1,41 @@
+[
+    {
+        "name": "Fehlende Infrastruktur",
+        "description": "Von hier aus gesehen sind es etwa 3 Kilometer um bis zu den nächsten S-Bahnen und U-Bahnen zu gelangen.",
+        "street": "Brunsbütteler Damm",
+        "houseNumber": "259",
+        "zip": "13591",
+        "city": "Berlin",
+        "category": "2",
+        "temporary": true,
+        "lon": 13.158437,
+        "lat": 52.5329111, 
+        "imagePath": "./images/spandau-brunsbueteller-damm-261.PNG"
+    },
+    {
+        "name": "Fehlende Infrastruktur 2",
+        "description": "Von hier sind es sogar in etwa 3,5 bis 4 Kilometer.",
+        "street": "Falkenseer Chaussee",
+        "houseNumber": "200",
+        "zip": "13589",
+        "city": "Berlin",
+        "category": "2",
+        "temporary": true,
+        "lon": 13.1659072,
+        "lat": 52.5506273, 
+        "imagePath": "./images/spandau-am-kiesteich.PNG"
+    },
+    {
+        "name": "Mangelhafte Radwege",
+        "description": "Hier sind die Fahrradwege sehr schmal und teils von anderen Fahrzeugen blockiert.",
+        "street": "Waltersdorfer Straße",
+        "houseNumber": "61",
+        "zip": "13589",
+        "city": "Berlin",
+        "category": "1",
+        "temporary": true,
+        "lon": 13.5711655,
+        "lat": 52.3897087, 
+        "imagePath": "./images/treptow-koepenik-waltersdorfer-strasse.PNG"
+    }
+]
