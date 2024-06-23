@@ -31,6 +31,12 @@ addUser('normalo', 'password', 'non-admin', 'Norman');
 
 // checks the login data and opens main section
 function login(username, password) {
+    /* 
+    TODO:
+    200: hide login page and show main
+    401: alert "wrong credentials", show login page
+    error: alert "something wrong", show login page
+    */
     if (userExists(username)) {
         console.log("username correct");
         console.log("user: " + JSON.stringify(userList.get(username)));
