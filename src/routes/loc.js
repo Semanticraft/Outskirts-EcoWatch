@@ -30,7 +30,8 @@ router.post('/', async function(req, res) {
     let locationId = await mongoCRUDs.insertOneLocation(locationToCreate);
     console.log(locationId);
     if (locationId) {
-      res.status(201).json({ id: locationId });
+      res.set('Location', '/loc/' + locationId);
+      res.status(201).send("Insertion successful.");
     } else {
       res.status(500).send("Location could not be inserted.");
     }

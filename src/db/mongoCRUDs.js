@@ -107,7 +107,6 @@ MongoCRUDs.prototype.insertOneLocation = async function(location) {
     const result = await coll.insertOne(doc); 
     return result.insertedId;
   } finally {
-
     await client.close();
   }
 }
