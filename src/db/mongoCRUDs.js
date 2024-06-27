@@ -1,4 +1,4 @@
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 
 const db_user = "outskirt_eco_watch_s0586888";
 const db_pass = "dQqXZ8jzq";
@@ -52,12 +52,13 @@ MongoCRUDs.prototype.findAllUsers  = async function() {
   }
 };
 
-MongoCRUDs.prototype.findOneLocation  = async function(locationId) {
+MongoCRUDs.prototype.findOneLocation  = async function(id) {
   const client = new MongoClient(uri);
   try {
     const database = client.db(db_name);
     const locations = database.collection(db_locations);
-    const query = {id: locationId};
+    const objectId = new ObjectId(id);
+    const query = { _id: objectId };
     const doc = await locations.findOne(query);
     return doc;
   } finally {
