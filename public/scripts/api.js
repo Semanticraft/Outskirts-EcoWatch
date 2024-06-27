@@ -21,7 +21,7 @@ export async function postLogin(username, password) {
             throw new Error("Login not successful: " + errorText);
         }
     } catch (error) {
-        throw new Error(getErrorMessage(error));
+        throw error;
     }
 }
 
@@ -37,13 +37,14 @@ export async function postLocation(location) {
             body: JSON.stringify(location)
           });
         if (response.ok) {
-            return await response.json();
+            location._id = response.headers.get('Location').replace('/loc/', '');
+            return response.text();
         } else {
             const errorText = await response.text(); 
             throw new Error("POST location not successful: " + errorText);
         }
     } catch (error) {
-        throw new Error(getErrorMessage(error));
+        throw error;
     }
 }
 
@@ -90,13 +91,13 @@ export async function updateLocation(id, location) {
             body: JSON.stringify(location)
           });
         if (response.ok) {
-            return await response.json();
+            return await response.text();
         } else {
             const errorText = await response.text(); 
             throw new Error("PUT location{" + id + "} not successful: " + errorText);
         }
     } catch (error) {
-        throw new Error(getErrorMessage(error));
+        throw error;
     }
 }
 
@@ -106,12 +107,12 @@ export async function deleteLocation(id) {
             method: 'DELETE'
           });
         if (response.ok) {
-            return await response.json();
+            return await response.text();
         } else {
             const errorText = await response.text(); 
             throw new Error("DELETE location{" + id + "} failed: " + errorText);
         }
     } catch (error) {
-        throw new Error(getErrorMessage(error));
+        throw error;
     }
 }

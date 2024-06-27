@@ -1,7 +1,8 @@
 import { login, logout } from './users.js';
-import { createLocation, pushLocation, locationList } from './locations.js';
+import { createLocation, pushLocation } from './locations.js';
 import { getCoords } from './geoservice_api.js';
 import { openSection } from './navigation.mjs';
+import { deleteLocation, postLocation, requestAllLocations, updateLocation } from './api.js';
 
 console.log("starting main.js");
 
@@ -28,7 +29,7 @@ function setUpdateScreenValues(location) {
 function addLocationToUI(location) {
 
     let outerDiv = document.createElement('div');
-    outerDiv.setAttribute("id", "location-" + location.id);
+    outerDiv.setAttribute("id", "location-" + location._id);
     outerDiv.classList.add('col-md-4');
     outerDiv.classList.add('my-3');
 
@@ -45,15 +46,20 @@ function addLocationToUI(location) {
     }
 }
 
-locationList.forEach(addLocationToUI);
+//locationList.forEach(addLocationToUI);
+
+requestAllLocations()
+    .then(locations => {
+        locations.forEach(addLocationToUI)
+    }).catch(error => console.log(error))
 
 function updateLocationUI(location) {
-    let listItem = document.getElementById("location-" + location.id);
+    let listItem = document.getElementById("location-" + location._id);
     listItem.innerHTML = getImgThumbnailString(location);
 }
 
 function removeLocationFromUI(location) {
-    let listItem = document.getElementById("location-" + location.id);
+    let listItem = document.getElementById("location-" + location._id);
     listItem.style.display = 'none';
 }
 
@@ -109,8 +115,12 @@ document.getElementById('cancel-add').onclick = function() {
 }
 
 document.getElementById('delete-button').onclick = function() {
-    removeLocationFromUI(selectedLocation);
-    openSection('main');
+    deleteLocation(selectedLocation._id)
+        .then(result => {
+            removeLocationFromUI(selectedLocation);
+            openSection('main');
+        }).catch(console.log);
+    
 }
 
 // First gets image via promise getImageSrc() and then calls addSubmitFunction(imageUrl)
@@ -147,20 +157,28 @@ function addSubmitFunction(imageUrl) {
     getCoords(location).then(submit => {
         if (submit) {
             console.log("Loaded coordinates for location: " + JSON.stringify(location));
-            pushLocation(location);
-            addLocationToUI(location);
-            openSection('main');
+            //pushLocation(location);
+            postLocation(location)
+                .then(result => {
+                    console.log(location);
+                    addLocationToUI(location);
+                    openSection('main');
+                    
+                    // Resetting all add-fields!
+                    document.getElementById("add_name").value = "";
+                    document.getElementById("add_description").value = "";
+                    document.getElementById("add_address_street").value = "";
+                    document.getElementById("add_address_no").value = "";
+                    document.getElementById("add_address_zip").value = "";
+                    document.getElementById("add_address_city").value = "";
+                    document.getElementById("add_category").selectedIndex = 0;
+                    document.getElementById("add_temporary_check").checked = false;
+                    document.getElementById('imagesUpload').value = "";
+                })
+                .catch(error => {
+                    console.log("Failed uploading: " + error);
+                })
             
-            // Resetting all add-fields!
-            document.getElementById("add_name").value = "";
-            document.getElementById("add_description").value = "";
-            document.getElementById("add_address_street").value = "";
-            document.getElementById("add_address_no").value = "";
-            document.getElementById("add_address_zip").value = "";
-            document.getElementById("add_address_city").value = "";
-            document.getElementById("add_category").selectedIndex = 0;
-            document.getElementById("add_temporary_check").checked = false;
-            document.getElementById('imagesUpload').value = "";
         } else {
             console.log("Failed to getCoords() for location: " + JSON.stringify(location));
         }
@@ -196,8 +214,13 @@ document.getElementById('update-and-delete-form').onsubmit = (e) => {
             selectedLocation.category = location.category;
             selectedLocation.temporary = location.temporary;
 
-            openSection('main');
-            updateLocationUI(selectedLocation);
+            updateLocation(selectedLocation._id, selectedLocation)
+                .then(result => {
+                    openSection('main');
+                    updateLocationUI(selectedLocation);
+                }).catch(error => {
+                    console.log(error)
+                });
         } else {
             console.log("Failed to getCoords() for location: " + JSON.stringify(location));
         }
