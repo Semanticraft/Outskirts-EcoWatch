@@ -135,8 +135,10 @@ MongoCRUDs.prototype.replaceOneLocation = async function(id, location) {
     console.log(result);
     if (result.modifiedCount === 1) {
       console.log("Successfully updated one document.");
+      return true;
     } else {
       console.log("No documents matched the query. Updated 0 documents.");
+      return false;
     }
   } finally { 
     await client.close(); 
@@ -153,8 +155,10 @@ MongoCRUDs.prototype.deleteOneLocation = async function(id) {
     const result = await coll.deleteOne(query);
     if (result.deletedCount === 1) {
       console.log("Successfully deleted one document.");
+      return true;
     } else {
       console.log("No documents matched the query. Deleted 0 documents.");
+      return false;
     }
   } finally {
     await client.close();
