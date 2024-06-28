@@ -1,5 +1,5 @@
 import { login, logout } from './users.js';
-import { createLocation, pushLocation } from './locations.js';
+import { createLocation } from './locations.js';
 import { getCoords } from './geoservice_api.js';
 import { openSection } from './navigation.mjs';
 import { deleteLocation, postLocation, requestAllLocations, updateLocation } from './api.js';
@@ -95,9 +95,9 @@ function getImageSrc() {
 
 // --------------------- SETUP EVENT-HANDLERS -----------------------
 
-document.getElementById('login-form').onsubmit = function() {
+document.getElementById('login-form').onsubmit = function(e) {
+    e.preventDefault();
     login(document.getElementById('username').value, document.getElementById('password').value);
-    return false; // Prevent the default form submission behavior (don't reload page)
 };
 
 document.getElementById('logout-button').onclick = logout;
